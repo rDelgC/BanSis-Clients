@@ -30,52 +30,52 @@ public class ClientRestController {
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping("personal/list")
+    @GetMapping("/personal/list")
     public Flux<Person> getAllPersons() {
         return personService.findAll();
     }
 
-    @GetMapping("personal/{id}")
+    @GetMapping("/personal/{id}")
     public Mono<Person> getPerson(@PathVariable String id) {
         return personService.findById(id);
     }
 
-    @PostMapping("personal/save")
+    @PostMapping("/personal/save")
     public Mono<Person> savePerson(@RequestBody Person person) {
         return personService.save(person);
     }
 
-    @PutMapping("personal/update/{id}")
+    @PutMapping("/personal/update/{id}")
     public Mono<PersonDto> updatePerson(@RequestBody Mono<PersonDto> personDtoMono, @PathVariable String id) {
         return personService.update(personDtoMono, id);
     }
 
-    @DeleteMapping("personal/delete/{id}")
+    @DeleteMapping("/personal/delete/{id}")
     public Mono<Void> deletePerson(@PathVariable String id) {
         return personService.delete(id);
     }
     
-    @GetMapping("company/list")
+    @GetMapping("/company/list")
     public Flux<Company> getAllCompanys() {
         return companyService.findAll();
     }
 
-    @GetMapping("company/{id}")
+    @GetMapping("/company/{id}")
     public Mono<Company> getCompany(@PathVariable String id) {
         return companyService.findById(id);
     }
     
-    @PostMapping("company/save")
+    @PostMapping("/company/save")
     public Mono<Company> savePerson(@RequestBody Company company) {
         return companyService.save(company);
     }
 
-    @PutMapping("company/update/{id}")
+    @PutMapping("/company/update/{id}")
     public Mono<Company> updatePerson(@RequestBody Company company, @PathVariable String id) {
         return companyService.update(company, id);
     }
 
-    @DeleteMapping("company/delete/{id}")
+    @DeleteMapping("/company/delete/{id}")
     public Mono<Void> deleteCompany(@PathVariable String id) {
         return companyService.delete(id);
     }

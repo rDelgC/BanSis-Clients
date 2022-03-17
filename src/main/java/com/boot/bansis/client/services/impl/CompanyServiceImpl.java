@@ -36,6 +36,7 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Mono<Company> update(Company company, String id) {
         return companyDao.findById(id)
+                .map(p -> company)
                 .doOnNext(e -> e.setId(id))
                 .flatMap(companyDao::save);
     }
