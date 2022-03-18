@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: bansis-client
+    cloud:
+        config:
+            uri: http://localhost:8081
+            username: nttdatosr
+            password: nttdatosd
