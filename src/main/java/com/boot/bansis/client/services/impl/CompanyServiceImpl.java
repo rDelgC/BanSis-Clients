@@ -46,4 +46,9 @@ public class CompanyServiceImpl implements CompanyService {
         return companyDao.deleteById(id);
     }
 
+    @Override
+    public Flux<Company> findByPymeTrue() {
+        return companyDao.findByPymeTrue();
+    }
+
 }

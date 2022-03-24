@@ -10,13 +10,17 @@ import reactor.core.publisher.Mono;
  * @author Demn
  */
 public interface CompanyService {
-    public Flux<Company> findAll(); 
-    
+
+    public Flux<Company> findAll();
+
     public Mono<Company> findById(String id);
-    
+
     public Mono<Company> save(Company company);
-    
+
     public Mono<Company> update(Company company, String id);
-    
+
     public Mono<Void> delete(String id);
+
+    public Flux<Company> findByPymeTrue();
+    
 }

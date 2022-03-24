@@ -10,15 +10,19 @@ import reactor.core.publisher.Mono;
  * @author Demn
  */
 public interface PersonService {
-    public Flux<Person> findAll(); 
-    
+
+    public Flux<Person> findAll();
+
     public Mono<Person> findById(String id);
-    
+
     public Mono<PersonDto> save(Mono<PersonDto> personDtoMono);
-    
+
     public Mono<Person> save(Person person);
-    
+
     public Mono<PersonDto> update(Mono<PersonDto> personDtoMono, String id);
-    
+
     public Mono<Void> delete(String id);
+
+    public Flux<Person> findByVipTrue();
+
 }

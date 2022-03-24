@@ -39,8 +39,8 @@ public class Company {
     @Field("email")
     private String email;
 
-    @Field("is_pyme")
-    private boolean isPyme;
+    @Field("pyme")
+    private boolean pyme;
 
     @Field("address")
     private Address address;

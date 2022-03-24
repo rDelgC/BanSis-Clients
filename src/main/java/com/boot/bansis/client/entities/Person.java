@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -18,7 +19,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "persons")
+@Document(collection = "people")
 public class Person {
 
     @Id
@@ -35,19 +36,19 @@ public class Person {
 
     @Field("phone_number")
     private String phoneNumber;
-    
+
     @Field("mobile_number")
     private String mobileNumber;
 
     @Field("email")
     private String email;
 
-    @Field("is_vip")
-    private boolean isVip;
+    @Field("vip")
+    private boolean vip;
 
     @Field("address")
     private Address address;
-    
+
     @Field("created_at")
     @CreatedDate
     private Date createdAt;

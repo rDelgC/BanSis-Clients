@@ -30,8 +30,9 @@ public class ClientRestController {
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping("/personal/list")
-    public Flux<Person> getAllPersons() {
+    //Endpoints for personal clients
+    @GetMapping("/personal")
+    public Flux<Person> getAllPeople() {
         return personService.findAll();
     }
 
@@ -54,8 +55,14 @@ public class ClientRestController {
     public Mono<Void> deletePerson(@PathVariable String id) {
         return personService.delete(id);
     }
-    
-    @GetMapping("/company/list")
+
+    @GetMapping("/personal/vip")
+    public Flux<Person> getVipClients() {
+        return personService.findByVipTrue();
+    }
+
+    //Endpoints for business clients
+    @GetMapping("/company")
     public Flux<Company> getAllCompanys() {
         return companyService.findAll();
     }
@@ -64,14 +71,14 @@ public class ClientRestController {
     public Mono<Company> getCompany(@PathVariable String id) {
         return companyService.findById(id);
     }
-    
+
     @PostMapping("/company/save")
-    public Mono<Company> savePerson(@RequestBody Company company) {
+    public Mono<Company> saveCompany(@RequestBody Company company) {
         return companyService.save(company);
     }
 
     @PutMapping("/company/update/{id}")
-    public Mono<Company> updatePerson(@RequestBody Company company, @PathVariable String id) {
+    public Mono<Company> updateCompany(@RequestBody Company company, @PathVariable String id) {
         return companyService.update(company, id);
     }
 
@@ -79,4 +86,10 @@ public class ClientRestController {
     public Mono<Void> deleteCompany(@PathVariable String id) {
         return companyService.delete(id);
     }
+
+    @GetMapping("/company/pyme")
+    public Flux<Company> getPymeClients() {
+        return companyService.findByPymeTrue();
+    }
+
 }

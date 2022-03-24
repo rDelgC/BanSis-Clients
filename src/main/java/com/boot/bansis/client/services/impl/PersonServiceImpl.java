@@ -36,7 +36,7 @@ public class PersonServiceImpl implements PersonService {
                 .flatMap(personDao::insert)
                 .map(Utils::entityToDto);
     }
-    
+
     @Override
     public Mono<Person> save(Person person) {
         return personDao.save(person);
@@ -55,4 +55,10 @@ public class PersonServiceImpl implements PersonService {
     public Mono<Void> delete(String id) {
         return personDao.deleteById(id);
     }
+
+    @Override
+    public Flux<Person> findByVipTrue() {
+        return personDao.findByVipTrue();
+    }
+
 }
