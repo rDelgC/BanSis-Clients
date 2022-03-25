@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  *
- * @author Demn
+ * @author rDelg
  */
 @Getter
 @Setter
@@ -49,7 +49,15 @@ public class Person {
     @Field("address")
     private Address address;
 
+    @Field("status")
+    private char status;
+
     @Field("created_at")
     @CreatedDate
     private Date createdAt;
+
+    @Field("updated_at")
+    @LastModifiedDate
+    private Date updatedAt;
+
 }

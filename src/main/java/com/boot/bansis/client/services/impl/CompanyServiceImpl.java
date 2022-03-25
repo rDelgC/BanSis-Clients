@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 
 /**
  *
- * @author Demn
+ * @author rDelgC
  */
 @Service
 public class CompanyServiceImpl implements CompanyService {

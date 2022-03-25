@@ -7,7 +7,7 @@ import reactor.core.publisher.Flux;
 
 /**
  *
- * @author Demn
+ * @author rDelgC
  */
 @Repository
 public interface CompanyRepository extends ReactiveMongoRepository<Company, String> {

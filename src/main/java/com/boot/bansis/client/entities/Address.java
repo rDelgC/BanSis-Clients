@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  *
- * @author Demn
+ * @author rDelgC
  */
 @Getter
 @Setter
@@ -16,9 +16,10 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @NoArgsConstructor
 public class Address {
 
-    @Field("desc")
+    @Field("description")
     private String description;
 
     @Field("post_code")
     private String postCode;
+
 }

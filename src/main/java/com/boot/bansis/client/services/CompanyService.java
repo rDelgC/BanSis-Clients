@@ -1,13 +1,12 @@
 package com.boot.bansis.client.services;
 
-import com.boot.bansis.client.dto.PersonDto;
 import com.boot.bansis.client.entities.Company;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
  *
- * @author Demn
+ * @author rDelgC
  */
 public interface CompanyService {
 

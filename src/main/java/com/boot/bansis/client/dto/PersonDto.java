@@ -1,8 +1,6 @@
 package com.boot.bansis.client.dto;
 
 import com.boot.bansis.client.entities.Address;
-import java.time.Instant;
-import java.time.ZonedDateTime;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +9,7 @@ import lombok.Setter;
 
 /**
  *
- * @author Demn
+ * @author rDelgC
  */
 @Getter
 @Setter
@@ -26,7 +24,10 @@ public class PersonDto {
     private String phoneNumber;
     private String mobileNumber;
     private String email;
-    private boolean isVip;
+    private boolean vip;
     private Address address;
+    private char status;
     private Date createdAt;
+    private Date updatedAt;
+
 }

@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 
 /**
  *
- * @author Demn
+ * @author rDelgC
  */
 @RestController
 @RequestMapping("/clients")
