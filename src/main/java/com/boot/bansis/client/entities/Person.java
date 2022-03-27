@@ -24,9 +24,13 @@ public class Person extends Client {
     @Field("last_name")
     private String lastName;
 
+    @Field("gender")
+    private Gender gender;
+
     @Field("id_number")
     private String idNumber;
 
     @Field("vip")
     private boolean vip;
+
 }

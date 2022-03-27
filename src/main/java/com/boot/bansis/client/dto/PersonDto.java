@@ -1,6 +1,7 @@
 package com.boot.bansis.client.dto;
 
 import com.boot.bansis.client.entities.Address;
+import com.boot.bansis.client.entities.Gender;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class PersonDto {
     private String phoneNumber;
     private String mobileNumber;
     private String email;
+    private Gender gender;
     private boolean vip;
     private Address address;
     private char status;

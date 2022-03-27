@@ -27,6 +27,7 @@ public class ClientRestController {
 
     @Autowired
     private PersonService personService;
+
     @Autowired
     private CompanyService companyService;
 

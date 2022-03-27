@@ -21,5 +21,5 @@ public interface CompanyService {
     public Mono<Void> delete(String id);
 
     public Flux<Company> findByPymeTrue();
-    
+
 }
