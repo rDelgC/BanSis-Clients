@@ -26,4 +26,5 @@ public class Company extends Client {
 
     @Field("pyme")
     private boolean pyme;
+
 }

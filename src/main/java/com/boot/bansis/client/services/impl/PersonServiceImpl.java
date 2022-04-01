@@ -37,22 +37,24 @@ public class PersonServiceImpl implements PersonService {
                 .map(Utils::entityToDto);
     }
 
+    /* Unused method
     @Override
     public Mono<Person> save(Person person) {
         return personDao.save(person);
     }
-
+     */
     @Override
     public Mono<PersonDto> update(Mono<PersonDto> personDtoMono, String id) {
         return personDao.findById(id)
                 .flatMap(p -> personDtoMono.map(Utils::dtoToEntity)
-                .doOnNext(e -> e.setId(id)))
+                .doOnNext(e -> e.setId(id))
+                .doOnNext(e -> e.setCreatedAt(p.getCreatedAt())))
                 .flatMap(personDao::save)
                 .map(Utils::entityToDto);
     }
 
     @Override
-    public Mono<Void> delete(String id) {
+    public Mono<Void> deleteById(String id) {
         return personDao.deleteById(id);
     }
 

@@ -1,5 +1,6 @@
 package com.boot.bansis.client.controllers;
 
+import com.boot.bansis.client.dto.CompanyDto;
 import com.boot.bansis.client.dto.PersonDto;
 import com.boot.bansis.client.entities.Company;
 import com.boot.bansis.client.entities.Person;
@@ -31,7 +32,7 @@ public class ClientRestController {
     @Autowired
     private CompanyService companyService;
 
-    //Endpoints for personal clients
+    // Personal clients endpoints
     @GetMapping("/personal")
     public Flux<Person> getAllPeople() {
         return personService.findAll();
@@ -43,8 +44,8 @@ public class ClientRestController {
     }
 
     @PostMapping("/personal/save")
-    public Mono<Person> savePerson(@RequestBody Person person) {
-        return personService.save(person);
+    public Mono<PersonDto> savePerson(@RequestBody Mono<PersonDto> personDtoMono) {
+        return personService.save(personDtoMono);
     }
 
     @PutMapping("/personal/update/{id}")
@@ -54,7 +55,7 @@ public class ClientRestController {
 
     @DeleteMapping("/personal/delete/{id}")
     public Mono<Void> deletePerson(@PathVariable String id) {
-        return personService.delete(id);
+        return personService.deleteById(id);
     }
 
     @GetMapping("/personal/vip")
@@ -62,7 +63,7 @@ public class ClientRestController {
         return personService.findByVipTrue();
     }
 
-    //Endpoints for business clients
+    // Business clients endpoints
     @GetMapping("/company")
     public Flux<Company> getAllCompanys() {
         return companyService.findAll();
@@ -74,18 +75,18 @@ public class ClientRestController {
     }
 
     @PostMapping("/company/save")
-    public Mono<Company> saveCompany(@RequestBody Company company) {
-        return companyService.save(company);
+    public Mono<CompanyDto> saveCompany(@RequestBody Mono<CompanyDto> companyDtoMono) {
+        return companyService.save(companyDtoMono);
     }
 
     @PutMapping("/company/update/{id}")
-    public Mono<Company> updateCompany(@RequestBody Company company, @PathVariable String id) {
-        return companyService.update(company, id);
+    public Mono<CompanyDto> updateCompany(@RequestBody Mono<CompanyDto> companyDtoMono, @PathVariable String id) {
+        return companyService.update(companyDtoMono, id);
     }
 
     @DeleteMapping("/company/delete/{id}")
     public Mono<Void> deleteCompany(@PathVariable String id) {
-        return companyService.delete(id);
+        return companyService.deleteById(id);
     }
 
     @GetMapping("/company/pyme")

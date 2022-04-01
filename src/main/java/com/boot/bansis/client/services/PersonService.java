@@ -17,11 +17,12 @@ public interface PersonService {
 
     public Mono<PersonDto> save(Mono<PersonDto> personDtoMono);
 
+    /* Unused method
     public Mono<Person> save(Person person);
-
+     */
     public Mono<PersonDto> update(Mono<PersonDto> personDtoMono, String id);
 
-    public Mono<Void> delete(String id);
+    public Mono<Void> deleteById(String id);
 
     public Flux<Person> findByVipTrue();
 

@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client {
+public abstract class Client {
 
     @Id
     private String id;
@@ -45,4 +45,5 @@ public class Client {
     @Field("updated_at")
     @LastModifiedDate
     private Date updatedAt;
+
 }
