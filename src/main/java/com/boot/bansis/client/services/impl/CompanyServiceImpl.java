@@ -21,13 +21,13 @@ public class CompanyServiceImpl implements CompanyService {
     private CompanyRepository companyDao;
 
     @Override
-    public Flux<Company> findAll() {
-        return companyDao.findAll();
+    public Flux<CompanyDto> findAll() {
+        return companyDao.findAll().map(Utils::entityToDto);
     }
 
     @Override
-    public Mono<Company> findById(String id) {
-        return companyDao.findById(id);
+    public Mono<CompanyDto> findById(String id) {
+        return companyDao.findById(id).map(Utils::entityToDto);
     }
 
     /* Unused methods
@@ -67,8 +67,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Flux<Company> findByPymeTrue() {
-        return companyDao.findByPymeTrue();
+    public Flux<CompanyDto> findByPymeTrue() {
+        return companyDao.findByPymeTrue().map(Utils::entityToDto);
     }
 
 }

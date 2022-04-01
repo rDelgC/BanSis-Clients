@@ -34,12 +34,12 @@ public class ClientRestController {
 
     // Personal clients endpoints
     @GetMapping("/personal")
-    public Flux<Person> getAllPeople() {
+    public Flux<PersonDto> getAllPeople() {
         return personService.findAll();
     }
 
     @GetMapping("/personal/{id}")
-    public Mono<Person> getPerson(@PathVariable String id) {
+    public Mono<PersonDto> getPerson(@PathVariable String id) {
         return personService.findById(id);
     }
 
@@ -59,18 +59,18 @@ public class ClientRestController {
     }
 
     @GetMapping("/personal/vip")
-    public Flux<Person> getVipClients() {
+    public Flux<PersonDto> getVipClients() {
         return personService.findByVipTrue();
     }
 
     // Business clients endpoints
     @GetMapping("/company")
-    public Flux<Company> getAllCompanys() {
+    public Flux<CompanyDto> getAllCompanys() {
         return companyService.findAll();
     }
 
     @GetMapping("/company/{id}")
-    public Mono<Company> getCompany(@PathVariable String id) {
+    public Mono<CompanyDto> getCompany(@PathVariable String id) {
         return companyService.findById(id);
     }
 
@@ -90,7 +90,7 @@ public class ClientRestController {
     }
 
     @GetMapping("/company/pyme")
-    public Flux<Company> getPymeClients() {
+    public Flux<CompanyDto> getPymeClients() {
         return companyService.findByPymeTrue();
     }
 

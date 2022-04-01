@@ -21,13 +21,13 @@ public class PersonServiceImpl implements PersonService {
     private PersonRepository personDao;
 
     @Override
-    public Flux<Person> findAll() {
-        return personDao.findAll();
+    public Flux<PersonDto> findAll() {
+        return personDao.findAll().map(Utils::entityToDto);
     }
 
     @Override
-    public Mono<Person> findById(String id) {
-        return personDao.findById(id);
+    public Mono<PersonDto> findById(String id) {
+        return personDao.findById(id).map(Utils::entityToDto);
     }
 
     @Override
@@ -59,8 +59,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Flux<Person> findByVipTrue() {
-        return personDao.findByVipTrue();
+    public Flux<PersonDto> findByVipTrue() {
+        return personDao.findByVipTrue().map(Utils::entityToDto);
     }
 
 }

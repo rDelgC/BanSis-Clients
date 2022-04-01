@@ -11,9 +11,9 @@ import reactor.core.publisher.Mono;
  */
 public interface CompanyService {
 
-    public Flux<Company> findAll();
+    public Flux<CompanyDto> findAll();
 
-    public Mono<Company> findById(String id);
+    public Mono<CompanyDto> findById(String id);
 
     /* Unused methods
     public Mono<Company> save(Company company);
@@ -26,6 +26,6 @@ public interface CompanyService {
 
     public Mono<Void> deleteById(String id);
 
-    public Flux<Company> findByPymeTrue();
+    public Flux<CompanyDto> findByPymeTrue();
 
 }

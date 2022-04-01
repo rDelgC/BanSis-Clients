@@ -11,9 +11,9 @@ import reactor.core.publisher.Mono;
  */
 public interface PersonService {
 
-    public Flux<Person> findAll();
+    public Flux<PersonDto> findAll();
 
-    public Mono<Person> findById(String id);
+    public Mono<PersonDto> findById(String id);
 
     public Mono<PersonDto> save(Mono<PersonDto> personDtoMono);
 
@@ -24,6 +24,6 @@ public interface PersonService {
 
     public Mono<Void> deleteById(String id);
 
-    public Flux<Person> findByVipTrue();
+    public Flux<PersonDto> findByVipTrue();
 
 }
