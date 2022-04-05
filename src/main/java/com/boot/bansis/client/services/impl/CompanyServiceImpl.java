@@ -1,7 +1,6 @@
 package com.boot.bansis.client.services.impl;
 
 import com.boot.bansis.client.dto.CompanyDto;
-import com.boot.bansis.client.entities.Company;
 import com.boot.bansis.client.repositories.CompanyRepository;
 import com.boot.bansis.client.services.CompanyService;
 import com.boot.bansis.client.utils.Utils;
@@ -55,8 +54,8 @@ public class CompanyServiceImpl implements CompanyService {
     public Mono<CompanyDto> update(Mono<CompanyDto> companyDtoMono, String id) {
         return companyDao.findById(id)
                 .flatMap(p -> companyDtoMono.map(Utils::dtoToEntity)
-                .doOnNext(e -> e.setId(id))
-                .doOnNext(e -> e.setCreatedAt(p.getCreatedAt())))
+                        .doOnNext(e -> e.setId(id))
+                        .doOnNext(e -> e.setCreatedAt(p.getCreatedAt())))
                 .flatMap(companyDao::save)
                 .map(Utils::entityToDto);
     }
